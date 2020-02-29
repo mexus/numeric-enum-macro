@@ -26,8 +26,9 @@
 //!     /// Multiline docs works too.
 //!     #[derive(Debug, PartialEq, PartialOrd, Ord, Eq, Hash)] // all the attributes are forwarded!
 //!     pub enum Lol2 {
-//!         // All the constants must have explicit values assigned!
+//!         /// This is KEK
 //!         Kek = KEK,
+//!         /// And this is WOW
 //!         Wow = WOW,
 //!     }
 //! }
@@ -56,12 +57,12 @@
 macro_rules! numeric_enum {
     (#[repr($repr:ident)]
      $(#$attrs:tt)* $vis:vis enum $name:ident {
-        $($enum:ident = $constant:expr),* $(,)?
+        $($(#$enum_attrs:tt)* $enum:ident = $constant:expr),* $(,)?
     } ) => {
         #[repr($repr)]
         $(#$attrs)*
         $vis enum $name {
-            $($enum = $constant),*
+            $($(#$enum_attrs)* $enum = $constant),*
         }
 
         impl ::core::convert::TryFrom<$repr> for $name {
