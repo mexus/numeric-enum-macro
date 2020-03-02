@@ -1,6 +1,6 @@
 [package]
 name = "numeric-enum-macro"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["mexus"]
 edition = "2018"
 keywords = [ "nostd", "enum", "macros" ]
